@@ -6,7 +6,7 @@
 </p>
 <h1 align="center">
   書籍『Gatsby4＋microCMSでつくるコーポレートサイト』改訂新版 後編　
-  完了ソースコード
+  完成コード
 </h1>
 
 <hr>
