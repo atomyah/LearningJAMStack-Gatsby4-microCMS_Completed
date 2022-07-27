@@ -1,12 +1,12 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 // import * as styles from "../components/index.module.css"
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
     <Seo title="Home" />
 
@@ -26,21 +26,13 @@ const IndexPage = () => (
             <div class="col-span-6 sm:col-span-12 md:col-span-6 lg:col-span-6 bg-indigo-400 font-medium text-white p-1 h-10">
               インフォメーション
             </div>
-            <div class="col-span-6 sm:col-span-12 md:col-span-6 lg:col-span-6 p-1 h-10">
-              インフォメーション①
-            </div>
-            <div class="col-span-6 sm:col-span-12 md:col-span-6 lg:col-span-6 p-1 h-10">
-              インフォメーション②
-            </div>
-            <div class="col-span-6 sm:col-span-12 md:col-span-6 lg:col-span-6 p-1 h-10">
-              インフォメーション③
-            </div>
-            <div class="col-span-6 sm:col-span-12 md:col-span-6 lg:col-span-6 p-1 h-10">
-              インフォメーション④
-            </div>
-            <div class="col-span-6 sm:col-span-12 md:col-span-6 lg:col-span-6 p-1 h-10">
-              インフォメーション⑤
-            </div>
+            {data.allMicrocmsInformation.edges.map(({ node }) => (
+              <div class="col-span-6 sm:col-span-12 md:col-span-6 lg:col-span-6 p-1 h-10">
+                   <Link to={`/information/${node.informationId}`}>
+                   {node.date}{`　`}{node.title}
+                   </Link>
+              </div>
+            ))}
         </div>
 
 {/* 以下、IR情報ブロック */}
@@ -102,3 +94,20 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
+export const query = graphql`
+query {
+    allMicrocmsInformation(limit: 4, sort: {fields: date, order: DESC}) {
+      edges {
+        node {
+          informationId
+          date(formatString: "YYYY年MM月DD日")
+          title
+          category {
+            category
+          }
+        }
+      }
+    }
+  }  
+`

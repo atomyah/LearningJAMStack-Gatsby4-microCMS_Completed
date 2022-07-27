@@ -5,7 +5,8 @@
   </a>
 </p>
 <h1 align="center">
-  書籍『Gatsby4＋microCMSでつくるコーポレートサイト』Section2から使用するテンプレートソースコード
+  書籍『Gatsby4＋microCMSでつくるコーポレートサイト』改訂新版 後編　
+  完了ソースコード
 </h1>
 
 <hr>

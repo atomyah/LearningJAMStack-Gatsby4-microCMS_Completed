@@ -1,10 +1,3 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
@@ -43,7 +36,7 @@ const Layout = ({ children }) => {
           <pre class="margin-bottom: var(--space-4)">
             © {new Date().getFullYear()} &middot; ヤー・ビズテック
             <br />
-            このサイトは書籍「JAMStackを学ぼうGatsby４＋Tailwind＋Gatsby Cloudでつくるコーポレートサイト」用サンプルです。
+            このサイトは書籍「JAMStackを学ぼう　Gatsby４～でつくるコーポレートサイト」前編・後編のサンプルデモサイトです.
           </pre>
         </footer>
       </div>
