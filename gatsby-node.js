@@ -26,7 +26,8 @@ exports.createPages = ({ graphql, actions }) => {
           component: path.resolve(`./src/templates/info-post.js`),
           context: {
             id: edge.node.informationId
-          }
+          },
+          defer: false,
         })
     })
   })
